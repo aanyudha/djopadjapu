@@ -14,6 +14,21 @@ public class gotoGameplay : MonoBehaviour {
 	//}
 
 	public void startGameplay(){
-		 Application.LoadLevel("gameplay");
+		StartCoroutine (Load2 ()); 
+
+	}
+
+	public void Load()
+	{
+		StartCoroutine (Load2 ());
+	}
+
+	IEnumerator Load2()
+	{
+		Handheld.SetActivityIndicatorStyle (AndroidActivityIndicatorStyle.Small);
+
+		Handheld.StartActivityIndicator ();
+		yield return new WaitForSeconds (0);
+		Application.LoadLevel("gameplay");
 	}
 }
